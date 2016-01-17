@@ -17,7 +17,7 @@ class Solution {
 };
 
 
-class P226_InvertBinaryTree_Test : public ::testing::Test {
+class P237_DeleteNodeInALinkedList_Test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
@@ -25,7 +25,7 @@ class P226_InvertBinaryTree_Test : public ::testing::Test {
   Solution s;
 };
 
-TEST_F(P226_InvertBinaryTree_Test, example_case) {
+TEST_F(P237_DeleteNodeInALinkedList_Test, example_case) {
   ListNode n3(4);
   ListNode n2(3);
   n2.next = &n3;
