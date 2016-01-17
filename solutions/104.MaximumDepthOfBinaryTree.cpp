@@ -24,7 +24,7 @@ class Solution {
 };
 
 
-class MaximumDepthOfBinaryTreeTest : public ::testing::Test {
+class P104_MaximumDepthOfBinaryTree_Test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
@@ -32,16 +32,16 @@ class MaximumDepthOfBinaryTreeTest : public ::testing::Test {
   Solution s;
 };
 
-TEST_F(MaximumDepthOfBinaryTreeTest, return_0_when_input_is_null) {
+TEST_F(P104_MaximumDepthOfBinaryTree_Test, return_0_when_input_is_null) {
   ASSERT_EQ(0, s.maxDepth(nullptr));
 }
 
-TEST_F(MaximumDepthOfBinaryTreeTest, return_1_when_root_only) {
+TEST_F(P104_MaximumDepthOfBinaryTree_Test, return_1_when_root_only) {
   TreeNode root(0);
   ASSERT_EQ(1, s.maxDepth(&root));
 }
 
-TEST_F(MaximumDepthOfBinaryTreeTest, return_4) {
+TEST_F(P104_MaximumDepthOfBinaryTree_Test, return_4) {
   // lv4
   TreeNode rootlll(0);
   // lv3
