@@ -26,7 +26,7 @@ class Solution {
 };
 
 
-class P83_RemoveDuplicatesFromSortedList_Test : public ::testing::Test {
+class P083_RemoveDuplicatesFromSortedList_Test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
@@ -34,7 +34,7 @@ class P83_RemoveDuplicatesFromSortedList_Test : public ::testing::Test {
   Solution s;
 };
 
-TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case0_0) {
+TEST_F(P083_RemoveDuplicatesFromSortedList_Test, case0_0) {
   ListNode il0(1);
   ListNode il1(1);
   il0.next = &il1;
@@ -47,7 +47,7 @@ TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case0_0) {
   }
 }
 
-TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case0_1) {
+TEST_F(P083_RemoveDuplicatesFromSortedList_Test, case0_1) {
   ListNode il0(1);
   ListNode il1(1);
   il0.next = &il1;
@@ -63,7 +63,7 @@ TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case0_1) {
   ASSERT_EQ(nullptr, output);
 }
 
-TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case1_0) {
+TEST_F(P083_RemoveDuplicatesFromSortedList_Test, case1_0) {
   ListNode il0(1);
   ListNode il1(1);
   il0.next = &il1;
@@ -80,7 +80,7 @@ TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case1_0) {
   }
 }
 
-TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case1_1) {
+TEST_F(P083_RemoveDuplicatesFromSortedList_Test, case1_1) {
   ListNode il0(1);
   ListNode il1(1);
   il0.next = &il1;
@@ -103,7 +103,7 @@ TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case1_1) {
   ASSERT_EQ(nullptr, output);
 }
 
-TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case2_0) {
+TEST_F(P083_RemoveDuplicatesFromSortedList_Test, case2_0) {
   ListNode il0(1);
   ListNode il1(1);
   il0.next = &il1;
@@ -120,7 +120,7 @@ TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case2_0) {
   }
 }
 
-TEST_F(P83_RemoveDuplicatesFromSortedList_Test, case2_1) {
+TEST_F(P083_RemoveDuplicatesFromSortedList_Test, case2_1) {
   ListNode il0(1);
   ListNode il1(1);
   il0.next = &il1;

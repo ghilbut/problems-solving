@@ -25,7 +25,7 @@ class Solution {
 };
 
 
-class P66_PlusOne_Test : public ::testing::Test {
+class P066_PlusOne_Test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
@@ -33,7 +33,7 @@ class P66_PlusOne_Test : public ::testing::Test {
   Solution s;
 };
 
-TEST_F(P66_PlusOne_Test, return_1_when_0) {
+TEST_F(P066_PlusOne_Test, return_1_when_0) {
   vector<int> input;
   input.push_back(0);
   vector<int> output;
@@ -41,7 +41,7 @@ TEST_F(P66_PlusOne_Test, return_1_when_0) {
   ASSERT_EQ(output, s.plusOne(input));
 }
 
-TEST_F(P66_PlusOne_Test, return_9_when_8) {
+TEST_F(P066_PlusOne_Test, return_9_when_8) {
   vector<int> input;
   input.push_back(8);
   vector<int> output;
@@ -49,7 +49,7 @@ TEST_F(P66_PlusOne_Test, return_9_when_8) {
   ASSERT_EQ(output, s.plusOne(input));
 }
 
-TEST_F(P66_PlusOne_Test, return_10_when_9) {
+TEST_F(P066_PlusOne_Test, return_10_when_9) {
   vector<int> input;
   input.push_back(9);
   vector<int> output;
@@ -58,7 +58,7 @@ TEST_F(P66_PlusOne_Test, return_10_when_9) {
   ASSERT_EQ(output, s.plusOne(input));
 }
 
-TEST_F(P66_PlusOne_Test, return_99_when_98) {
+TEST_F(P066_PlusOne_Test, return_99_when_98) {
   vector<int> input;
   input.push_back(9);
   input.push_back(8);
@@ -68,7 +68,7 @@ TEST_F(P66_PlusOne_Test, return_99_when_98) {
   ASSERT_EQ(output, s.plusOne(input));
 }
 
-TEST_F(P66_PlusOne_Test, return_100_when_99) {
+TEST_F(P066_PlusOne_Test, return_100_when_99) {
   vector<int> input;
   input.push_back(9);
   input.push_back(9);
