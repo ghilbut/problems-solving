@@ -1,2 +1,2 @@
-# leetcode.com
-training leecode.com algorithm problems solving.
+# problems solving
+training algorithm problems solving.
