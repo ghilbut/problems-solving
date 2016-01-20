@@ -7,8 +7,7 @@ os.system('clear' if os.name is 'posix' else 'CLS')
 BASEPATH = Dir('.').abspath
 
 print '-----------------------------------------------------------------'
-print '[leetcode.com]  build and run,'
-print '                  on %s.' % BASEPATH
+print ' all solutions build and run,'
 print '-----------------------------------------------------------------'
 
 CPPPATH = [
@@ -17,7 +16,7 @@ CPPPATH = [
 
 env = Environment(CPPPATH=CPPPATH, CXXFLAGS=['-std=c++11',])
 
-sources = Glob('solutions/*.cpp')
+sources = Glob('leetcode.com/*.cpp')
 
 LIBS = [
     'gtest', 
@@ -32,6 +31,6 @@ if os.name == 'posix':
 test = env.Program(target='all', source=sources, LIBS=LIBS, LIBPATH=LIBPATH)
 
 Command(
-  'solve', 
+  'solutions', 
   test, 
   lambda env, target, source: os.system(source[0].abspath))
