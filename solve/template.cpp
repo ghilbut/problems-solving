@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+using namespace std;
+
 
 class Solution {
  public:
@@ -11,11 +13,8 @@ class Solution {
 
 class SolutionTest : public ::testing::Test {
  protected:
-  virtual void SetUp() {
-  }
-  virtual void TearDown() {
-  }
-
+  virtual void SetUp() {}
+  virtual void TearDown() {}
  protected:
   Solution s;
 };
