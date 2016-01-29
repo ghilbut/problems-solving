@@ -9,12 +9,6 @@ struct ListNode {
   ListNode(int x) : val(x), next(NULL) {}
 };
 
-struct CountAndLast {
-  int count;
-  ListNode * last;
-  CountAndLast(int x, ListNode * y) : count(x), last(y) {}
-};
-
 class Solution {
  public:
   ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
