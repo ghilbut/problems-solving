@@ -12,22 +12,19 @@ struct ListNode {
 class Solution {
  public:
   ListNode* reverseList(ListNode* head) {
-    if (head == nullptr) {
-      return nullptr;
+    if (head == nullptr || head->next == nullptr) {
+      return head;
     }
-    auto result = solve(head);
+    auto prev = head;
+    auto cur = head->next;
+    while (cur != nullptr) {
+      auto next = cur->next;
+      cur->next = prev;
+      prev = cur;
+      cur = next;
+    }
     head->next = nullptr;
-    return result;
-  }
-  
-  ListNode * solve (ListNode * &cursor) {
-    if (cursor->next == nullptr) {
-      return cursor;
-    }
-    ListNode * next = cursor->next;
-    ListNode * head = solve(next);
-    next->next = cursor;
-    return head;
+    return prev;
   }
 };
 
