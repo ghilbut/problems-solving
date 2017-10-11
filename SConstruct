@@ -6,12 +6,12 @@ os.system('clear' if os.name is 'posix' else 'CLS')
 
 BASEPATH = Dir('.').abspath
 
-print '-----------------------------------------------------------------'
-print ' all solutions build and run,'
-print '-----------------------------------------------------------------'
+print('-----------------------------------------------------------------')
+print(' all solutions build and run,')
+print('-----------------------------------------------------------------')
 
 CPPPATH = [
-    'googletest/googletest/googletest/include',
+    'test/googletest/googletest/include',
   ]
 
 env = Environment(CPPPATH=CPPPATH, CXXFLAGS=['-std=c++11',])
@@ -19,11 +19,11 @@ env = Environment(CPPPATH=CPPPATH, CXXFLAGS=['-std=c++11',])
 sources = Glob('leetcode.com/*.cpp')
 
 LIBS = [
-    'gtest', 
+    'test', 
   ]
 
 LIBPATH = [
-    'googletest',
+    'test',
   ]
 
 if os.name == 'posix':

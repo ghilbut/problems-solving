@@ -29,8 +29,11 @@
 
 
 
+# vim
+.*.swp
+
 # leetcode.com
 .sconsign.dblite
-googletest
+test/
 solve
 all

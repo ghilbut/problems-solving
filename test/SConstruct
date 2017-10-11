@@ -1,5 +1,4 @@
 #-*- coding:utf-8 -*-
-
 import os
 import sys
 
@@ -16,6 +15,7 @@ BASEPATH = Dir('.').abspath
 cpppath = [
   'googletest/googletest/include',
   'googletest/googletest',
+  '.',
 ]
 
 env = Environment(CPPPATH=cpppath, CXXFLAGS='-std=c++11')
@@ -33,6 +33,7 @@ if not is_clean:
     call(['git', 'clone', url])
 
 
+
 ################################################################
 ##  build static library
 ################################################################
@@ -40,10 +41,29 @@ if not is_clean:
 sources = [
     'googletest/googletest/src/gtest-all.cc',
     'googletest/googletest/src/gtest_main.cc',
-  ]
+  ] + [s for s in Glob('*.cpp') if not s.name.endswith('_test.cpp')]
 
 # build static library
-lib = env.StaticLibrary(target='gtest', source=sources)
+lib = env.StaticLibrary(target='test', source=sources)
 #env.Install('./', ['googletest/googletest/src/gtest_main.cc',])
 #env.Alias('install', './')
 #Default('install')
+
+
+
+################################################################
+##  build and run unit-test
+################################################################
+
+LIBPATH = [ '.' ]
+LIBS    = [ 'test' ]
+sources = Glob('*_test.cpp')
+
+if os.name == 'posix':
+  env.Append(LINKFLAGS=['-pthread'])
+test = env.Program(target='test', source=sources, LIBS=LIBS, LIBPATH=LIBPATH)
+
+Command(
+  'test-harness', 
+  test, 
+  lambda env, target, source: os.system(source[0].abspath))
