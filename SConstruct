@@ -14,7 +14,7 @@ CPPPATH = [
     'test/googletest/googletest/include',
   ]
 
-env = Environment(CPPPATH=CPPPATH, CXXFLAGS=['-std=c++11',])
+env = Environment(CPPPATH=CPPPATH, CXXFLAGS=['-std=c++14',])
 
 sources = Glob('leetcode.com/*.cpp')
 

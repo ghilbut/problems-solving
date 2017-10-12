@@ -18,7 +18,7 @@ cpppath = [
   '.',
 ]
 
-env = Environment(CPPPATH=cpppath, CXXFLAGS='-std=c++11')
+env = Environment(CPPPATH=cpppath, CXXFLAGS='-std=c++14')
 is_clean = env.GetOption('clean')
 
 # don't clone or update from git repository when clean

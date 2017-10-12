@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
-
-using namespace std;
+#include <utils.h>
 
 
 class Solution {
