@@ -1,53 +1,36 @@
 #include <gtest/gtest.h>
+#include <utils.h>
 
-using namespace std;
-
-
-struct ListNode {
-  int val;
-  ListNode *next;
-  ListNode(int x) : val(x), next(NULL) {}
-};
+#include <iostream>
 
 class Solution {
  public:
   ListNode* oddEvenList(ListNode* head) {
 
-    ListNode oddprev(-1);
-    oddprev.next = head;
-
-    ListNode * prev = &oddprev;
-    ListNode * cur = head;
-
-    ListNode * even_head = nullptr;
-    ListNode * even_tail = nullptr;
-    while (cur != nullptr) {
-
-      if (cur->val % 2 == 1) {
-        prev = cur;
-        cur = cur->next;
-        continue;
-      }
-
-      if (even_tail == nullptr) {
-        even_head = cur;
-        even_tail = cur;
-      } else {
-        even_tail->next = cur;
-        even_tail = cur;
-      }
-      prev->next = cur->next;
-      cur = cur->next;
-      even_tail->next = nullptr;
-    }
-    
-    if (oddprev.next == nullptr) {
-      oddprev.next = even_head;
-    } else {
-      prev->next = even_head;
+    if (head == nullptr || head->next == nullptr) {
+      return head;
     }
 
-    return oddprev.next;
+    ListNode * oddhead = head, * oddtail = head;
+    ListNode * evenhead = head->next, * eventail = head->next;
+    for (;;) {
+
+      if (eventail->next == nullptr) {
+        break;
+      }
+
+      oddtail = oddtail->next = eventail->next;
+
+      if (oddtail->next == nullptr) {
+        break;
+      }
+
+      eventail = eventail->next = oddtail->next;
+    }
+
+    oddtail->next = evenhead;
+    eventail->next = nullptr;
+    return oddhead;
   }
 };
 
@@ -61,58 +44,28 @@ class P328_OddEvenLinkedList_Test : public ::testing::Test {
 };
 
 TEST_F(P328_OddEvenLinkedList_Test, case0) {
-  ListNode l1(1);
-  ListNode l2(3);
-  l1.next = &l2;
-  ListNode l3(5);
-  l2.next = &l3;
-  ListNode l4(7);
-  l3.next = &l4;
-  ListNode l5(9);
-  l4.next = &l5;
-
-  ListNode * head = s.oddEvenList(&l1);
-  ASSERT_EQ(1, head->val);
-  ASSERT_EQ(3, (head = head->next)->val);
-  ASSERT_EQ(5, (head = head->next)->val);
-  ASSERT_EQ(7, (head = head->next)->val);
-  ASSERT_EQ(9, (head = head->next)->val);
+  auto * i = MakeListFromString("[]");
+  auto * o = s.oddEvenList(i);
+  ASSERT_TRUE(IsListEqual(nullptr, o));
 }
 
 TEST_F(P328_OddEvenLinkedList_Test, case1) {
-  ListNode l1(2);
-  ListNode l2(4);
-  l1.next = &l2;
-  ListNode l3(6);
-  l2.next = &l3;
-  ListNode l4(8);
-  l3.next = &l4;
-  ListNode l5(10);
-  l4.next = &l5;
-
-  ListNode * head = s.oddEvenList(&l1);
-  ASSERT_EQ(2, head->val);
-  ASSERT_EQ(4, (head = head->next)->val);
-  ASSERT_EQ(6, (head = head->next)->val);
-  ASSERT_EQ(8, (head = head->next)->val);
-  ASSERT_EQ(10, (head = head->next)->val);
+  auto * i = MakeListFromString("[ 1 ]");
+  auto * e = MakeListFromString("[ 1 ]");
+  auto * o = s.oddEvenList(i);
+  ASSERT_TRUE(IsListEqual(e, o));
 }
 
 TEST_F(P328_OddEvenLinkedList_Test, case2) {
-  ListNode l1(1);
-  ListNode l2(2);
-  l1.next = &l2;
-  ListNode l3(3);
-  l2.next = &l3;
-  ListNode l4(4);
-  l3.next = &l4;
-  ListNode l5(5);
-  l4.next = &l5;
+  auto * i = MakeListFromString("[ 1, 2, 3, 4, 5 ]");
+  auto * e = MakeListFromString("[ 1, 3, 5, 2, 4 ]");
+  auto * o = s.oddEvenList(i);
+  ASSERT_TRUE(IsListEqual(e, o));
+}
 
-  ListNode * head = s.oddEvenList(&l1);
-  ASSERT_EQ(1, head->val);
-  ASSERT_EQ(3, (head = head->next)->val);
-  ASSERT_EQ(5, (head = head->next)->val);
-  ASSERT_EQ(2, (head = head->next)->val);
-  ASSERT_EQ(4, (head = head->next)->val);
+TEST_F(P328_OddEvenLinkedList_Test, case3) {
+  auto * i = MakeListFromString("[ 1, 2, 3, 4, 5, 6, 7, 8 ]");
+  auto * e = MakeListFromString("[ 1, 3, 5, 7, 2, 4, 6, 8 ]");
+  auto * o = s.oddEvenList(i);
+  ASSERT_TRUE(IsListEqual(e, o));
 }
