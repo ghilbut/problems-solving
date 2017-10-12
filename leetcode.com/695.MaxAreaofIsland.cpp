@@ -38,7 +38,7 @@ class Solution {
 };
 
 
-class SolutionTest : public ::testing::Test {
+class P695_MaxAreaofIsland_Test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
@@ -46,35 +46,35 @@ class SolutionTest : public ::testing::Test {
   Solution s;
 };
 
-TEST_F(SolutionTest, case0) {
+TEST_F(P695_MaxAreaofIsland_Test, case0) {
 
   auto i = MatrixFromString(""); 
   const int o = s.maxAreaOfIsland(i);
   ASSERT_EQ(0, o);
 }
 
-TEST_F(SolutionTest, case1) {
+TEST_F(P695_MaxAreaofIsland_Test, case1) {
 
   auto i = MatrixFromString("[]"); 
   const int o = s.maxAreaOfIsland(i);
   ASSERT_EQ(0, o);
 }
 
-TEST_F(SolutionTest, case2) {
+TEST_F(P695_MaxAreaofIsland_Test, case2) {
 
   auto i = MatrixFromString("[[]]"); 
   const int o = s.maxAreaOfIsland(i);
   ASSERT_EQ(0, o);
 }
 
-TEST_F(SolutionTest, case3) {
+TEST_F(P695_MaxAreaofIsland_Test, case3) {
 
   auto i = MatrixFromString("[[0,0,0,0,0,0,0,0]]");
   const int o = s.maxAreaOfIsland(i);
   ASSERT_EQ(0, o);
 }
 
-TEST_F(SolutionTest, case4) {
+TEST_F(P695_MaxAreaofIsland_Test, case4) {
 
   auto i = MatrixFromString(R"(
 [[1,1,0,0,0],
@@ -87,7 +87,7 @@ TEST_F(SolutionTest, case4) {
   ASSERT_EQ(e, o);
 }
 
-TEST_F(SolutionTest, case5) {
+TEST_F(P695_MaxAreaofIsland_Test, case5) {
 
   auto i = MatrixFromString(R"(
 [[0,0,1,0,0,0,0,1,0,0,0,0,0],

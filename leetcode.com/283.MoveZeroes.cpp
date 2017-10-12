@@ -23,7 +23,7 @@ class Solution {
 };
 
 
-class SolutionTest : public ::testing::Test {
+class P283_MoveZeroes_Test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
@@ -31,14 +31,14 @@ class SolutionTest : public ::testing::Test {
   Solution s;
 };
 
-TEST_F(SolutionTest, case0) {
+TEST_F(P283_MoveZeroes_Test, case0) {
   vector<int> nums { 0, 1, 0, 3, 12 };
   const vector<int> expected { 1, 3, 12, 0, 0 };
   s.moveZeroes(nums);
   ASSERT_EQ(expected, nums);
 }
 
-TEST_F(SolutionTest, case1) {
+TEST_F(P283_MoveZeroes_Test, case1) {
   vector<int> nums { 1 };
   const vector<int> expected { 1 };
   s.moveZeroes(nums);

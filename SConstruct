@@ -12,6 +12,7 @@ print('-----------------------------------------------------------------')
 
 CPPPATH = [
     'test/googletest/googletest/include',
+    'test',
   ]
 
 env = Environment(CPPPATH=CPPPATH, CXXFLAGS=['-std=c++14',])
